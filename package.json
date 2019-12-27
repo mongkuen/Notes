@@ -44,7 +44,8 @@
           "allowTypedFunctionExpressions": false,
           "allowHigherOrderFunctions": false
         }
-      ]
+      ],
+      "@typescript-eslint/camelcase": "off"
     }
   },
   "browserslist": {

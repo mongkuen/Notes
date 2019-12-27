@@ -2,13 +2,13 @@
 
 ### The user should be able to add notes to the system via a modal.
 
-### The system should display notes that have been entered.
+### The system should display notes that have been entered. ☑️
 
-### The system should be programmed in React.
+### The system should be programmed in React. ☑️
 
-### It should support two types of notes.
-  1. A note which contains text
-  2. A note which contains text and a due date.
+### It should support two types of notes. ☑️
+  1. A note which contains text. ☑️
+  2. A note which contains text and a due date. ☑️
 
 ### The system should also be programmed in a way that allows the system administrator the ability to add additional unforeseen types of notes.
 
