@@ -14,3 +14,14 @@ export const timeFromTimestamp = (
   const d = new Date(timestamp)
   return `${d.getHours()}${separator}${d.getMinutes()}`
 }
+
+export const keys = Object.keys as <T>(o: T) => Extract<keyof T, string>[]
+
+export const capitalize = (str: string): string => {
+  return str
+    .split(' ')
+    .map((word): string => {
+      return `${word[0].toUpperCase()}${word.substring(1)}`
+    })
+    .join(' ')
+}
