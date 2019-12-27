@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import 'components/DueNote/styles.css'
-import { DueNote } from 'queries'
+import { DueNote } from 'apollo/queries'
 import { dateFromTimestamp, timeFromTimestamp } from 'helpers'
 
 const Note: FC<DueNote> = ({

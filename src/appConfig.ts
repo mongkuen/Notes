@@ -1,22 +1,21 @@
 import Note from 'components/Note'
-import NoteModal, { NoteModalProps } from 'components/NoteModal'
+import NoteModal from 'components/modals/NoteModal'
 import DueNote from 'components/DueNote'
-import DueNoteModal, { DueNoteModalProps } from 'components/DueNoteModal'
-import { Note as NoteType, DueNote as DueNoteType } from 'queries'
+import DueNoteModal from 'components/modals/DueNoteModal'
+import { Note as NoteType, DueNote as DueNoteType } from 'apollo/queries'
 
 interface NoteTypeConfig {
   name: string
   dataSource: 'notes' | 'due_notes'
+  modalComponent: React.FC
 }
 
 interface NoteConfig extends NoteTypeConfig {
   displayComponent: React.FC<NoteType>
-  modalComponent: React.FC<NoteModalProps>
 }
 
 interface DueNoteConfig extends NoteTypeConfig {
   displayComponent: React.FC<DueNoteType>
-  modalComponent: React.FC<DueNoteModalProps>
 }
 
 interface AppConfig {

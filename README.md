@@ -18,7 +18,7 @@
 
 ### The system does not need to be beautiful, but it should have some styling.
 
-### Please use a state management system of your choosing
+### Please use a state management system of your choosing ☑️
 
 ### Please write two unit tests
 

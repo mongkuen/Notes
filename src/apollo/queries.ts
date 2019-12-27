@@ -43,3 +43,15 @@ export const ALL_NOTES = gql`
     }
   }
 `
+
+export interface GetOpenModalQuery {
+  data: {
+    openModal: string
+  }
+}
+
+export const GET_OPEN_MODAL = gql`
+  {
+    openModal @client
+  }
+`

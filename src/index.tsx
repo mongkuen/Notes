@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'index.css'
 import App from 'components/App'
-import { client } from 'apolloClient'
+import { client } from 'apollo/client'
 import { ApolloProvider } from '@apollo/react-hooks'
 
 const ApolloApp = (): JSX.Element => {

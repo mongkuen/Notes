@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import 'components/AllNotes/styles.css'
 import { useQuery } from '@apollo/react-hooks'
-import { ALL_NOTES, AllNotesQuery, Note, DueNote } from 'queries'
+import { ALL_NOTES, AllNotesQuery, Note, DueNote } from 'apollo/queries'
 import QueryError from 'components/QueryError'
 import Loading from 'components/Loading'
 import { keys, capitalize } from 'helpers'
@@ -22,7 +22,7 @@ const AllNotes: FC = (): JSX.Element => {
           const config = appConfig[configType]
           const typeData: Array<Note | DueNote> = data[config.dataSource]
           return (
-            <>
+            <div key={configType}>
               <h1>{capitalize(config.name)}</h1>
               {typeData.map(
                 (note): JSX.Element => {
@@ -30,7 +30,7 @@ const AllNotes: FC = (): JSX.Element => {
                   return <DisplayComponent key={note.id} {...note} />
                 }
               )}
-            </>
+            </div>
           )
         }
       )}
