@@ -6,6 +6,7 @@ import { GET_OPEN_MODAL, GetOpenModalQuery, ALL_NOTES } from 'apollo/queries'
 import { SET_OPEN_MODAL, ADD_DUE_NOTE } from 'apollo/mutations'
 import { DUE_NOTE_OPEN, CLOSED } from 'components/modals/modalStates'
 import { inThreeDays, isPast, inputToLocalTimestamp } from 'helpers'
+import appConfig from 'appConfig'
 
 const DueNoteModal: FC = (): JSX.Element => {
   const {
@@ -54,6 +55,13 @@ const DueNoteModal: FC = (): JSX.Element => {
 
   return openModal === DUE_NOTE_OPEN ? (
     <div className='modal-container due-note-modal'>
+      <h1
+        className='modal-header'
+        style={{
+          color: appConfig.dueNote.backgroundColor,
+        }}>
+        Add a new Due Note
+      </h1>
       <div className='modal-body'>
         <input
           className='text-input'

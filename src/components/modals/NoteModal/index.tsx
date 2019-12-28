@@ -5,6 +5,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_OPEN_MODAL, GetOpenModalQuery, ALL_NOTES } from 'apollo/queries'
 import { SET_OPEN_MODAL, ADD_NOTE } from 'apollo/mutations'
 import { NOTE_OPEN, CLOSED } from 'components/modals/modalStates'
+import appConfig from 'appConfig'
 
 const NoteModal: FC = (): JSX.Element => {
   const {
@@ -41,6 +42,13 @@ const NoteModal: FC = (): JSX.Element => {
 
   return openModal === NOTE_OPEN ? (
     <div className='modal-container'>
+      <h1
+        className='modal-header'
+        style={{
+          color: appConfig.note.backgroundColor,
+        }}>
+        Add a new Note
+      </h1>
       <div className='modal-body'>
         <input
           className='text-input'

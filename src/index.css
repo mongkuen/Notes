@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+#root {
+  height: 100vh;
+}
+
 .btn {
   padding: 10px 20px;
   background-color: slategray;

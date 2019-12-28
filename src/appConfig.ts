@@ -37,7 +37,7 @@ const appConfig: AppConfig = {
     dataSource: 'due_notes',
     displayComponent: DueNote,
     modalComponent: DueNoteModal,
-    backgroundColor: '#abe1fd',
+    backgroundColor: '#99b4c7',
   },
 }
 

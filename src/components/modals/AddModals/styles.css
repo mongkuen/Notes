@@ -7,3 +7,8 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.modal-header {
+  positioN: absolute;
+  top: 30px;
+}

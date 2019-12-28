@@ -16,14 +16,16 @@ const AllNotes: FC = (): JSX.Element => {
   return data === undefined ? (
     <QueryError />
   ) : (
-    <div>
+    <div className='all-notes-container'>
       {keys(appConfig).map(
         (configType): JSX.Element => {
           const config = appConfig[configType]
           const typeData: Array<Note | DueNote> = data[config.dataSource]
           return (
-            <div key={configType}>
-              <h1>{capitalize(config.name)}</h1>
+            <div className='notes-container' key={configType}>
+              <h2 className='collection-header'>
+                {capitalize(config.name)} Collection
+              </h2>
               {typeData.map(
                 (note): JSX.Element => {
                   const DisplayComponent = config.displayComponent
