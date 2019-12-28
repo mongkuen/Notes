@@ -13,7 +13,7 @@ const AddModals: FC = (): JSX.Element => {
 
   return (
     <>
-      {openModal !== CLOSED && <div>Modal Overlay</div>}
+      {openModal !== CLOSED && <div className={'modal-overlay'} />}
       {keys(appConfig).map(
         (configType): JSX.Element => {
           const config = appConfig[configType]

@@ -1,5 +1,6 @@
 import React, { FC, useState, useCallback } from 'react'
 import 'components/modals/NoteModal/styles.css'
+import 'components/modals/styles.css'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_OPEN_MODAL, GetOpenModalQuery, ALL_NOTES } from 'apollo/queries'
 import { SET_OPEN_MODAL, ADD_NOTE } from 'apollo/mutations'
@@ -38,22 +39,40 @@ const NoteModal: FC = (): JSX.Element => {
       })
   }, [text, addNote, setOpenModal])
 
-  return (
-    <div>
-      <label htmlFor='noteText'>Note</label>
-      <input id='noteText' type='text' onChange={handleChange} value={text} />
-      <p>OpenStatus: {`${openModal === NOTE_OPEN}`}</p>
-      {error && 'Something went wrong, please try again'}
-      <button
-        onClick={(): void => {
-          setOpenModal({ variables: { openModal: CLOSED } })
-        }}>
-        Cancel
-      </button>
-      <button onClick={handleSubmit} disabled={text === '' || loading}>
-        {loading ? 'Sending...' : buttonText}
-      </button>
+  return openModal === NOTE_OPEN ? (
+    <div className='modal-container'>
+      <div className='modal-body'>
+        <input
+          className='text-input'
+          placeholder='Note Text'
+          type='text'
+          onChange={handleChange}
+          value={text}
+        />
+        {error && (
+          <div className='modal-error'>
+            Something went wrong, please try again
+          </div>
+        )}
+      </div>
+      <div className='modal-buttons'>
+        <button
+          className='btn'
+          onClick={(): void => {
+            setOpenModal({ variables: { openModal: CLOSED } })
+          }}>
+          Cancel
+        </button>
+        <button
+          className='btn btn-success'
+          onClick={handleSubmit}
+          disabled={text === '' || loading}>
+          {loading ? 'Sending...' : buttonText}
+        </button>
+      </div>
     </div>
+  ) : (
+    <></>
   )
 }
 

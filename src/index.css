@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn {
+  padding: 10px 20px;
+  background-color: slategray;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: lightseagreen;
+}
