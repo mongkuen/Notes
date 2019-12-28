@@ -1,7 +1,6 @@
 .all-notes-container {
   display: flex;
   height: calc(100% - 53px);
-  background-color: lightblue;
 }
 
 .notes-container {
@@ -15,7 +14,7 @@
   position: sticky;
   margin: 0;
   padding: 15px 0;
-  background-color: cornflowerblue;
   color: white;
   border-right: 1px solid white;
+  background-color: cornflowerblue;
 }
