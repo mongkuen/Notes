@@ -50,7 +50,7 @@ const NoteModal: FC = (): JSX.Element => {
         }}>
         Cancel
       </button>
-      <button onClick={handleSubmit} disabled={text === ''}>
+      <button onClick={handleSubmit} disabled={text === '' || loading}>
         {loading ? 'Sending...' : buttonText}
       </button>
     </div>

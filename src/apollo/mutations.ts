@@ -25,3 +25,11 @@ export const ADD_DUE_NOTE = gql`
     }
   }
 `
+
+export const DELETE_NOTE = gql`
+  mutation DeleteNote($id: uuid) {
+    delete_notes(where: { id: { _eq: $id } }) {
+      affected_rows
+    }
+  }
+`

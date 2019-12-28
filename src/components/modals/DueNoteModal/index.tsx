@@ -76,7 +76,9 @@ const DueNoteModal: FC = (): JSX.Element => {
         }}>
         Cancel
       </button>
-      <button onClick={handleSubmit} disabled={text === '' || alreadyPast}>
+      <button
+        onClick={handleSubmit}
+        disabled={text === '' || alreadyPast || loading}>
         {loading ? 'Sending...' : buttonText}
       </button>
     </div>
