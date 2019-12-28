@@ -16,7 +16,7 @@
   1. What component to use to display each type of note ☑️
   2. What component to use in the modal for collecting information for each type of note ☑️
 
-### The system does not need to be beautiful, but it should have some styling.
+### The system does not need to be beautiful, but it should have some styling. ☑️
 
 ### Please use a state management system of your choosing ☑️
 
