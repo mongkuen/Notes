@@ -19,7 +19,7 @@ const NoteModal: FC = (): JSX.Element => {
     ],
   })
   const [text, setText] = useState('')
-  const [buttonText, setButtonText] = useState('Make Note')
+  const [buttonText, setButtonText] = useState('Make Note ✓')
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>): void => {
@@ -61,7 +61,7 @@ const NoteModal: FC = (): JSX.Element => {
           onClick={(): void => {
             setOpenModal({ variables: { openModal: CLOSED } })
           }}>
-          Cancel
+          Cancel ✕
         </button>
         <button
           className='btn btn-success'

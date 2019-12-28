@@ -21,7 +21,7 @@ const DueNoteModal: FC = (): JSX.Element => {
   })
   const [text, setText] = useState('')
   const [date, setDate] = useState(inThreeDays())
-  const [buttonText, setButtonText] = useState('Make Due Note')
+  const [buttonText, setButtonText] = useState('Make Due Note ✓')
 
   const handleTextChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>): void => {
@@ -89,7 +89,7 @@ const DueNoteModal: FC = (): JSX.Element => {
           onClick={(): void => {
             setOpenModal({ variables: { openModal: CLOSED } })
           }}>
-          Cancel
+          Cancel ✕
         </button>
         <button
           className='btn btn-success'

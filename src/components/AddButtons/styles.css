@@ -1,0 +1,18 @@
+.header-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.header-button {
+  color: white;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  filter: brightness(0.9);
+}

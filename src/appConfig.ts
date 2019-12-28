@@ -8,6 +8,7 @@ interface NoteTypeConfig {
   name: string
   dataSource: 'notes' | 'due_notes'
   modalComponent: React.FC
+  backgroundColor: string
 }
 
 interface NoteConfig extends NoteTypeConfig {
@@ -29,12 +30,14 @@ const appConfig: AppConfig = {
     dataSource: 'notes',
     displayComponent: Note,
     modalComponent: NoteModal,
+    backgroundColor: '#ff9681',
   },
   dueNote: {
     name: 'due note',
     dataSource: 'due_notes',
     displayComponent: DueNote,
     modalComponent: DueNoteModal,
+    backgroundColor: '#abe1fd',
   },
 }
 
