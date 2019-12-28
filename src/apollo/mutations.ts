@@ -11,9 +11,16 @@ export const ADD_NOTE = gql`
     insert_notes(objects: { text: $text }) {
       returning {
         id
-        text
-        created_at
-        updated_at
+      }
+    }
+  }
+`
+
+export const ADD_DUE_NOTE = gql`
+  mutation AddDueNote($text: String!, $due_timestamp: numeric!) {
+    insert_due_notes(objects: { text: $text, due_timestamp: $due_timestamp }) {
+      returning {
+        id
       }
     }
   }

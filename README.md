@@ -1,6 +1,6 @@
 ## Notes
 
-### The user should be able to add notes to the system via a modal.
+### The user should be able to add notes to the system via a modal. ☑️
 
 ### The system should display notes that have been entered. ☑️
 

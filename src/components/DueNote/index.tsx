@@ -1,21 +1,23 @@
 import React, { FC } from 'react'
 import 'components/DueNote/styles.css'
-import { DueNote } from 'apollo/queries'
-import { dateFromTimestamp, timeFromTimestamp } from 'helpers'
+import { DueNote as DueNoteType } from 'apollo/queries'
+import { dateFromTimestamp } from 'helpers'
 
-const Note: FC<DueNote> = ({
+const DueNote: FC<DueNoteType> = ({
   id,
   text,
   due_timestamp,
-}: DueNote): JSX.Element => {
+}: DueNoteType): JSX.Element => {
+  const now = Date.now()
+  const overdue = now > due_timestamp
+
   return (
     <div key={id}>
       {text}
-      <div>
-        {dateFromTimestamp(due_timestamp)} {timeFromTimestamp(due_timestamp)}
-      </div>
+      {overdue && 'Overdue'}
+      <div>{dateFromTimestamp(due_timestamp)}</div>
     </div>
   )
 }
 
-export default Note
+export default DueNote

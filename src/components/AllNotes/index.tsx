@@ -26,8 +26,9 @@ const AllNotes: FC = (): JSX.Element => {
               <h1>{capitalize(config.name)}</h1>
               {typeData.map(
                 (note): JSX.Element => {
-                  const DisplayComponent = appConfig.note.displayComponent
-                  return <DisplayComponent key={note.id} {...note} />
+                  const DisplayComponent = config.displayComponent
+                  /* eslint-disable-next-line */
+                  return <DisplayComponent key={note.id} {...(note as any)} />
                 }
               )}
             </div>
