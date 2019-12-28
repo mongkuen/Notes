@@ -20,7 +20,7 @@
 
 ### Please use a state management system of your choosing ☑️
 
-### Please write two unit tests
+### Please write two unit tests ☑️
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

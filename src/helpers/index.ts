@@ -33,8 +33,7 @@ export const capitalize = (str: string): string => {
     .join(' ')
 }
 
-export const inThreeDays = (): string => {
-  const now = Date.now()
+export const inThreeDays = (now = Date.now()): string => {
   const threeDayMilliseconds = 3 * 24 * 60 * 60 * 1000
   const inThreeDays = now + threeDayMilliseconds
   const { year, month, date } = getDateComponents(inThreeDays)
