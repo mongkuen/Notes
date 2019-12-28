@@ -39,22 +39,26 @@ const DueNoteModal: FC = (): JSX.Element => {
     []
   )
 
-  const handleSubmit = useCallback((): void => {
-    const timestamp = inputToLocalTimestamp(date)
-    addDueNote({ variables: { text, due_timestamp: timestamp } })
-      .then((): void => {
-        setOpenModal({ variables: { openModal: CLOSED } })
-        setText('')
-      })
-      .catch((): void => {
-        setButtonText('Retry Make Due Note')
-      })
-  }, [text, addDueNote, setOpenModal, date])
+  const handleSubmit = useCallback(
+    (e: React.FormEvent): void => {
+      e.preventDefault()
+      const timestamp = inputToLocalTimestamp(date)
+      addDueNote({ variables: { text, due_timestamp: timestamp } })
+        .then((): void => {
+          setOpenModal({ variables: { openModal: CLOSED } })
+          setText('')
+        })
+        .catch((): void => {
+          setButtonText('Retry Make Due Note')
+        })
+    },
+    [text, addDueNote, setOpenModal, date]
+  )
 
   const alreadyPast = isPast(date)
 
   return openModal === DUE_NOTE_OPEN ? (
-    <div className='modal-container due-note-modal'>
+    <form className='modal-container due-note-modal'>
       <h1
         className='modal-header'
         style={{
@@ -93,6 +97,7 @@ const DueNoteModal: FC = (): JSX.Element => {
       )}
       <div className='modal-buttons'>
         <button
+          type='button'
           className='btn'
           onClick={(): void => {
             setOpenModal({ variables: { openModal: CLOSED } })
@@ -100,13 +105,14 @@ const DueNoteModal: FC = (): JSX.Element => {
           Cancel ✕
         </button>
         <button
+          type='submit'
           className='btn btn-success'
           onClick={handleSubmit}
           disabled={text === '' || alreadyPast || loading}>
           {loading ? 'Sending...' : buttonText}
         </button>
       </div>
-    </div>
+    </form>
   ) : (
     <></>
   )

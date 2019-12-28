@@ -29,19 +29,23 @@ const NoteModal: FC = (): JSX.Element => {
     []
   )
 
-  const handleSubmit = useCallback((): void => {
-    addNote({ variables: { text } })
-      .then((): void => {
-        setOpenModal({ variables: { openModal: CLOSED } })
-        setText('')
-      })
-      .catch((): void => {
-        setButtonText('Retry Make Note')
-      })
-  }, [text, addNote, setOpenModal])
+  const handleSubmit = useCallback(
+    (e: React.FormEvent): void => {
+      e.preventDefault()
+      addNote({ variables: { text } })
+        .then((): void => {
+          setOpenModal({ variables: { openModal: CLOSED } })
+          setText('')
+        })
+        .catch((): void => {
+          setButtonText('Retry Make Note')
+        })
+    },
+    [text, addNote, setOpenModal]
+  )
 
   return openModal === NOTE_OPEN ? (
-    <div className='modal-container'>
+    <form className='modal-container'>
       <h1
         className='modal-header'
         style={{
@@ -65,6 +69,7 @@ const NoteModal: FC = (): JSX.Element => {
       </div>
       <div className='modal-buttons'>
         <button
+          type='button'
           className='btn'
           onClick={(): void => {
             setOpenModal({ variables: { openModal: CLOSED } })
@@ -72,13 +77,14 @@ const NoteModal: FC = (): JSX.Element => {
           Cancel ✕
         </button>
         <button
+          type='submit'
           className='btn btn-success'
           onClick={handleSubmit}
           disabled={text === '' || loading}>
           {loading ? 'Sending...' : buttonText}
         </button>
       </div>
-    </div>
+    </form>
   ) : (
     <></>
   )

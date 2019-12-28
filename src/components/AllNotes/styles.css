@@ -17,6 +17,7 @@
   color: white;
   border-right: 1px solid white;
   background-color: cornflowerblue;
+  z-index: 1;
 }
 
 .note-item {

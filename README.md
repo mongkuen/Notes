@@ -1,4 +1,6 @@
-## Notes
+# Notes
+
+## Requirements
 
 ### The user should be able to add notes to the system via a modal. ☑️
 
@@ -21,6 +23,22 @@
 ### Please use a state management system of your choosing ☑️
 
 ### Please write two unit tests ☑️
+
+---
+
+## Additional Comments
+- Backend using Hasura GraphQL server and Postgres database, deployed on Heroku
+- Hasura URL: `https://tt-notes-dev.herokuapp.com/console`
+- Frontend using Create React App, deployed on Heroku
+- Development tools: Typescript, ESLint (config in `package.json`), Prettier + file watcher (config in `.prettierrc.js`)
+- ApolloBoost for client GraphQL, Apollo Cache used as store for modal states (client at: `src/apollo/client.ts`)
+- No frontend frameworks or prebuilt components used. Minimal CSS.
+- Config file at: `src/appConfig.ts`
+- Unit tests at: `src/helpers/helpers.test.ts`
+
+---
+
+## CRA Readme
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
