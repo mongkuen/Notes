@@ -24,11 +24,15 @@ export const dateFromTimestamp = (
 
 export const keys = Object.keys as <T>(o: T) => Extract<keyof T, string>[]
 
+export const capitalizeFirst = (word: string): string => {
+  return `${word[0].toUpperCase()}${word.substring(1)}`
+}
+
 export const capitalize = (str: string): string => {
   return str
     .split(' ')
     .map((word): string => {
-      return `${word[0].toUpperCase()}${word.substring(1)}`
+      return capitalizeFirst(word)
     })
     .join(' ')
 }

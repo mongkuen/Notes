@@ -1,8 +1,10 @@
 import React, { FC, useCallback, useState } from 'react'
 import 'components/Note/styles.css'
+import 'components/AllNotes/styles.css'
 import { Note as NoteType, ALL_NOTES } from 'apollo/queries'
 import { DELETE_NOTE } from 'apollo/mutations'
 import { useMutation } from '@apollo/react-hooks'
+import { capitalizeFirst } from 'helpers'
 
 const Note: FC<NoteType> = ({ id, text }: NoteType): JSX.Element => {
   const [queryError, setQueryError] = useState(false)
@@ -27,11 +29,14 @@ const Note: FC<NoteType> = ({ id, text }: NoteType): JSX.Element => {
   }, [deleteNote, id])
 
   return (
-    <div key={id}>
-      {text}
+    <div key={id} className='note-item'>
+      {capitalizeFirst(text)}
       {(error || queryError) && 'Something went wrong, please try again'}
-      <button onClick={handleDelete} disabled={loading}>
-        {loading ? '...' : 'X'}
+      <button
+        className='note-item-delete'
+        onClick={handleDelete}
+        disabled={loading}>
+        {loading ? '...' : '✕'}
       </button>
     </div>
   )
