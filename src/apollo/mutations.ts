@@ -33,3 +33,11 @@ export const DELETE_NOTE = gql`
     }
   }
 `
+
+export const DELETE_DUE_NOTE = gql`
+  mutation DeleteDueNote($id: uuid) {
+    delete_due_notes(where: { id: { _eq: $id } }) {
+      affected_rows
+    }
+  }
+`
