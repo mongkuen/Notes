@@ -1,0 +1,21 @@
+.due-note-dates {
+  display: flex;
+}
+
+.due-note-overdue {
+  background-color: indianred;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 10px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.due-note-date {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: dimgray;
+}

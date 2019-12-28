@@ -1,7 +1,8 @@
 import React, { FC, useCallback, useState } from 'react'
 import 'components/DueNote/styles.css'
+import 'components/AllNotes/styles.css'
 import { DueNote as DueNoteType, ALL_NOTES } from 'apollo/queries'
-import { dateFromTimestamp } from 'helpers'
+import { dateFromTimestamp, capitalizeFirst } from 'helpers'
 import { DELETE_DUE_NOTE } from 'apollo/mutations'
 import { useMutation } from '@apollo/react-hooks'
 
@@ -35,14 +36,21 @@ const DueNote: FC<DueNoteType> = ({
   }, [deleteDueNote, id])
 
   return (
-    <div key={id}>
-      {text}
-      {overdue && 'Overdue'}
-      <div>{dateFromTimestamp(due_timestamp)}</div>
-      {(error || queryError) && 'Something went wrong, please try again'}
-      <button onClick={handleDelete} disabled={loading}>
-        {loading ? '...' : 'X'}
-      </button>
+    <div key={id} className='note-item'>
+      {(error || queryError) && (
+        <div className='note-error'>Error, please try again.</div>
+      )}
+      {capitalizeFirst(text)}
+      <div className='due-note-dates'>
+        {overdue && <div className='due-note-overdue'>Overdue</div>}
+        <div className='due-note-date'>{dateFromTimestamp(due_timestamp)}</div>
+        <button
+          className='note-item-delete'
+          onClick={handleDelete}
+          disabled={loading}>
+          {loading ? '...' : '✕'}
+        </button>
+      </div>
     </div>
   )
 }

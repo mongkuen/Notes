@@ -20,13 +20,15 @@
 }
 
 .note-item {
-  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px 35px;
   font-size: 20px;
   color: white;
+  flex-wrap: wrap;
+  word-break: break-all;
+  position: relative;
 }
 
 .note-item-delete {
@@ -45,4 +47,11 @@
 .note-item-delete:hover {
   background-color: palevioletred;
   color: white;
+}
+
+.note-error {
+  position: absolute;
+  font-size: 12px;
+  color: indianred;
+  bottom: 0;
 }

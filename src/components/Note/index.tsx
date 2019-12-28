@@ -31,7 +31,9 @@ const Note: FC<NoteType> = ({ id, text }: NoteType): JSX.Element => {
   return (
     <div key={id} className='note-item'>
       {capitalizeFirst(text)}
-      {(error || queryError) && 'Something went wrong, please try again'}
+      {(error || queryError) && (
+        <div className='note-error'>Error, please try again.</div>
+      )}
       <button
         className='note-item-delete'
         onClick={handleDelete}
