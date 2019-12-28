@@ -1,5 +1,6 @@
 import React, { FC, useState, useCallback } from 'react'
-import 'components/modals/NoteModal/styles.css'
+import 'components/modals/DueNoteModal/styles.css'
+import 'components/modals/styles.css'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { GET_OPEN_MODAL, GetOpenModalQuery, ALL_NOTES } from 'apollo/queries'
 import { SET_OPEN_MODAL, ADD_DUE_NOTE } from 'apollo/mutations'
@@ -51,37 +52,55 @@ const DueNoteModal: FC = (): JSX.Element => {
 
   const alreadyPast = isPast(date)
 
-  return (
-    <div>
-      <label htmlFor='dueNoteText'>Note</label>
-      <input
-        id='dueNoteText'
-        type='text'
-        onChange={handleTextChange}
-        value={text}
-      />
-      <label htmlFor='dueNoteDate'>Due Date</label>
-      <input
-        id='dueNoteDate'
-        type='date'
-        value={date}
-        onChange={handleDateChange}
-      />
-      <p>OpenStatus: {`${openModal === DUE_NOTE_OPEN}`}</p>
-      {error && 'Something went wrong, please try again'}
-      {alreadyPast && 'Set due date sometime in the future'}
-      <button
-        onClick={(): void => {
-          setOpenModal({ variables: { openModal: CLOSED } })
-        }}>
-        Cancel
-      </button>
-      <button
-        onClick={handleSubmit}
-        disabled={text === '' || alreadyPast || loading}>
-        {loading ? 'Sending...' : buttonText}
-      </button>
+  return openModal === DUE_NOTE_OPEN ? (
+    <div className='modal-container due-note-modal'>
+      <div className='modal-body'>
+        <input
+          className='text-input'
+          placeholder='Note text'
+          type='text'
+          onChange={handleTextChange}
+          value={text}
+        />
+        <label className='due-note-label' htmlFor='dueNoteDate'>
+          Due Date
+        </label>
+        <input
+          className='text-input'
+          id='dueNoteDate'
+          type='date'
+          value={date}
+          onChange={handleDateChange}
+        />
+      </div>
+      {error && (
+        <div className='modal-error due-note-modal-error'>
+          Something went wrong, please try again
+        </div>
+      )}
+      {alreadyPast && (
+        <div className='modal-error due-note-modal-error'>
+          Set due date sometime in the future
+        </div>
+      )}
+      <div className='modal-buttons'>
+        <button
+          className='btn'
+          onClick={(): void => {
+            setOpenModal({ variables: { openModal: CLOSED } })
+          }}>
+          Cancel
+        </button>
+        <button
+          className='btn btn-success'
+          onClick={handleSubmit}
+          disabled={text === '' || alreadyPast || loading}>
+          {loading ? 'Sending...' : buttonText}
+        </button>
+      </div>
     </div>
+  ) : (
+    <></>
   )
 }
 

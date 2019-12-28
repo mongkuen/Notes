@@ -1,0 +1,15 @@
+.due-note-modal {
+  height: 500px;
+  top: 20%;
+}
+
+.due-note-label {
+  color: darkgray;
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+}
+
+.due-note-modal-error {
+  margin-top: 20px;
+}

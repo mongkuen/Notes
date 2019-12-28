@@ -24,6 +24,10 @@ code {
   cursor: pointer;
 }
 
+.btn:disabled {
+  color: lightgray;
+}
+
 .btn-success {
   background-color: lightseagreen;
 }
